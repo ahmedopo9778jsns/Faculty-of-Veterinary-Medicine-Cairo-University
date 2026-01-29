@@ -3,3 +3,7 @@ body{font-family:Arial;background:#167bb6;color:#000}
 .card{background:#fff;padding:20px;border-radius:12px;width:300px}
 .input{width:100%;padding:10px;margin:8px 0}
 .bottomBtn{width:100%;padding:10px;background:#0f6ea8;color:#fff;border:none}
+.logo img{
+  width: 90px;   /* حجم متوسط */
+  height: auto;
+}

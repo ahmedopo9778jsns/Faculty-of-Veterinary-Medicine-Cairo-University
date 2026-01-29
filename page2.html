@@ -4,19 +4,253 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>نتيجة الفصل الدراسي الأول</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background:#ffffff;
+      color:#111;
+    }
+
+    .resultWrap{
+      width:min(1000px, 95vw);
+      margin:20px auto;
+    }
+
+    .resultCard{
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
+      overflow:hidden;
+      border:1px solid #e7e7ee;
+    }
+
+    .resultHeader{
+      background:#167bb6;
+      color:#fff;
+      padding:18px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .resultHeader h2{
+      margin:0;
+      font-size:22px;
+      font-weight:900;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btnSmall{
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      border-radius:10px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-weight:800;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    /* ===== بيانات الطالب ===== */
+    .studentInfo{
+      padding:18px 20px;
+      background:#ffffff;
+      border-bottom:1px solid #e7e7ee;
+    }
+
+    .infoGrid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:12px 24px;
+    }
+
+    .infoItem{
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .infoItem span{
+      font-weight:800;
+      color:#167bb6;
+    }
+
+    /* ===== الجدول ===== */
+    .tableWrap{
+      padding:16px;
+      background:#ffffff;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      border:1px solid #e7e7ee;
+      border-radius:14px;
+      overflow:hidden;
+      background:#ffffff;
+    }
+
+    thead th{
+      background:#f2f6fb;
+      padding:12px 10px;
+      font-size:14px;
+      text-align:right;
+      border-bottom:1px solid #e7e7ee;
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:12px 10px;
+      border-bottom:1px solid #eee;
+      font-size:14px;
+    }
+
+    tbody tr:last-child td{ border-bottom:none; }
+
+    .grade-good{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#e9f7ef;
+      color:#1e7e34;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .grade-exc{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#e6f4ff;
+      color:#0b5ed7;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .sumBox{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 18px;
+      flex-wrap:wrap;
+      background:#ffffff;
+      border-top:1px solid #e7e7ee;
+    }
+
+    .pill{
+      background:#f6f7fb;
+      border:1px solid #e7e7ee;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:14px;
+    }
+
+    @media (max-width:640px){
+      .resultHeader{flex-direction:column; align-items:flex-start}
+      .actions{width:100%; justify-content:flex-end}
+    }
+  </style>
 </head>
+
 <body>
-  <h2 style="text-align:center">نتيجة الفصل الدراسي الأول</h2>
-  <table border="1" style="margin:auto;border-collapse:collapse">
-    <tr>
-      <th>كود المقرر</th><th>المادة</th><th>الساعات</th><th>المجموع</th><th>التقدير</th>
-    </tr>
-    <tr><td>CRS101</td><td>مدخل التخصص</td><td>3</td><td>78</td><td>جيد</td></tr>
-    <tr><td>CRS102</td><td>أساسيات</td><td>3</td><td>74</td><td>جيد</td></tr>
-    <tr><td>CRS103</td><td>حاسوب</td><td>2</td><td>76</td><td>جيد</td></tr>
-    <tr><td>CRS104</td><td>لغة إنجليزية</td><td>2</td><td>72</td><td>جيد</td></tr>
-    <tr><td>CRS105</td><td>القضايا المجتمعية</td><td>2</td><td>90</td><td>امتياز</td></tr>
-  </table>
+  <div class="resultWrap">
+    <div class="resultCard">
+
+      <!-- العنوان -->
+      <div class="resultHeader">
+        <h2>نتيجة الفصل الدراسي الأول</h2>
+        <div class="actions">
+          <button class="btnSmall" onclick="window.print()">طباعة</button>
+          <a class="btnSmall" href="index.html">خروج</a>
+        </div>
+      </div>
+
+      <!-- بيانات الطالب -->
+      <div class="studentInfo">
+        <div class="infoGrid">
+          <div class="infoItem"><span>اسم الطالب:</span> رضوه محمود حسين فيصل</div>
+          <div class="infoItem"><span>كود الطالب:</span> 11012025101145</div>
+          <div class="infoItem"><span>الجنسية:</span> مصري</div>
+          <div class="infoItem"><span>حالة القيد:</span> مقيد</div>
+          <div class="infoItem"><span>مستوى الدراسة:</span> المستوى الأول / الفصل الدراسي الأول / دور أول</div>
+          <div class="infoItem"><span>القسم / الشعبة:</span> كلية الطب البيطري</div>
+        </div>
+      </div>
+
+      <!-- جدول النتائج -->
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>كود المقرر</th>
+              <th>المادة</th>
+              <th>الساعات</th>
+              <th>المجموع</th>
+              <th>التقدير</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>CHI 115</td>
+              <td>خلية وأنسجة (1)</td>
+              <td>3</td>
+              <td>78</td>
+              <td><span class="grade-good">جيد</span></td>
+            </tr>
+            <tr>
+              <td>NDC 111</td>
+              <td>اللغة الجليلة وتعريفات</td>
+              <td>2</td>
+              <td>74</td>
+              <td><span class="grade-good">جيد</span></td>
+            </tr>
+            <tr>
+              <td>NDC 112</td>
+              <td>بيولوجيا (علم الحيوان)</td>
+              <td>3</td>
+              <td>76</td>
+              <td><span class="grade-good">جيد</span></td>
+            </tr>
+            <tr>
+              <td>NDC 113</td>
+              <td>كيمياء حيوي</td>
+              <td>3</td>
+              <td>72</td>
+              <td><span class="grade-good">جيد</span></td>
+            </tr>
+            <tr>
+              <td>ANA 114</td>
+              <td>تشريح (1)</td>
+              <td>3</td>
+              <td>75</td>
+              <td><span class="grade-good">جيد</span></td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>قضايا مجتمعية</td>
+              <td>2</td>
+              <td>90</td>
+              <td><span class="grade-exc">امتياز</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sumBox">
+        <div class="pill">عدد المواد: <b>6</b></div>
+        <div class="pill">التقدير العام: جيد (مع استثناء القضايا المجتمعية: امتياز)</div>
+      </div>
+
+    </div>
+  </div>
 </body>
-</html>
+  </html>
